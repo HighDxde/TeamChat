@@ -1,4 +1,4 @@
-package kyubii.de.teamchatg;
+package kyubii.de.teamchat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
