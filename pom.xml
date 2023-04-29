@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kyubii.de</groupId>
-    <artifactId>TeamChatg</artifactId>
+    <artifactId>TeamChat</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>TeamChatg</name>
+    <name>TeamChat</name>
 
     <properties>
         <java.version>1.8</java.version>

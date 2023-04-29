@@ -10,17 +10,16 @@ public final class TeamChat extends JavaPlugin {
         saveConfig();
         getConfig().addDefault("Prefix", "&8[&bTeamchat&8] &7");
         getConfig().addDefault("Permission", "teamchat.chat");
+        saveConfig();
+        reloadConfig();
         getCommand("Teamchat").setExecutor(new TeamchatCommand());
+        getCommand("Tc").setExecutor(new TeamchatCommand());
+        getCommand("Reloadteamchatconfig").setExecutor(new ConfigReloadCommand());
+        getCommand("Rltcconfig").setExecutor(new ConfigReloadCommand());
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-    }
-    public String getPrefix(){
-        return getConfig().getString("Prefix").replaceAll("&", "§");
-    }
-    public String getPermission(){
-        return getConfig().getString("Permission");
     }
 }

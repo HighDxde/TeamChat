@@ -1,6 +1,6 @@
 name: TeamChat
 author: Kyubiilikesweat
-version: '${project.version}'
+version: '1.0'
 main: kyubii.de.teamchatg.TeamChat
 commands:
   Teamchat:
