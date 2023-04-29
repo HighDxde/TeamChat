@@ -40,6 +40,8 @@ public class TeamchatCommand implements CommandExecutor {
                                 targets.sendMessage(getPrefix() + player.getDisplayName() + ": " + text);
                             }
                         }
+                    }else {
+                        player.sendMessage("§c/Teamchat <Nachricht>");
                     }
                 }
             }
