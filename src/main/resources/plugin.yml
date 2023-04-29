@@ -1,0 +1,7 @@
+name: TeamChat
+author: Kyubiilikesweat
+version: '${project.version}'
+main: kyubii.de.teamchatg.TeamChat
+commands:
+  Teamchat:
+    alias: Tc
