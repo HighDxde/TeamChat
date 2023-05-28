@@ -7,4 +7,6 @@ commands:
   Tc:
   Reloadteamchatconfig:
   Rltcconfig:
+  Toggleteamchat:
+  Toggletc:
 

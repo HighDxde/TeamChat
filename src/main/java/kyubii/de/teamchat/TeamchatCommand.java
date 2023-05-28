@@ -10,9 +10,7 @@ import org.bukkit.plugin.Plugin;
 public class TeamchatCommand implements CommandExecutor {
     Plugin teamChat = TeamChat.getPlugin(TeamChat.class);
 
-    private String getPrefix(){
-        return teamChat.getConfig().getString("Prefix").replaceAll("&", "§");
-    }
+
     private String getPermission(){
         return teamChat.getConfig().getString("Permission");
     }
@@ -26,6 +24,13 @@ public class TeamchatCommand implements CommandExecutor {
                 if (!player.hasPermission(getPermission())) {
                     player.sendMessage("§cDafür hast du keine Rechte!");
                 } else {
+                    if (!ToggleTeamchatCommand.isActive.containsKey(player)){
+                        ToggleTeamchatCommand.isActive.put(player, true);
+                    }
+                    if (ToggleTeamchatCommand.isActive.get(player).equals(false)){
+                        player.sendMessage("§cDein Teamchat ist deaktiviert!");
+                        return true;
+                    }
                     if (args.length <= 1) {
                         StringBuilder motdBuilder = new StringBuilder();
                         for (int i = 0; i < args.length; i++) {
@@ -37,7 +42,15 @@ public class TeamchatCommand implements CommandExecutor {
                         }
                         for (Player targets : Bukkit.getOnlinePlayers()) {
                             if (targets.hasPermission(getPermission())) {
-                                targets.sendMessage(getPrefix() + player.getDisplayName() + ": " + text);
+                                if (!ToggleTeamchatCommand.isActive.containsKey(targets)) {
+                                    ToggleTeamchatCommand.isActive.put(targets, true);
+                                }
+                                if (ToggleTeamchatCommand.isActive.get(targets).equals(true)) {
+                                    targets.sendMessage(teamChat.getConfig()
+                                            .getString("Prefix")
+                                            .replace("%PLAYER%", player.getDisplayName())
+                                            .replaceAll("&", "§") + text);
+                                }
                             }
                         }
                     }else {
